@@ -344,6 +344,9 @@ void KisToolMultihand::initTransformations()
         }
 
     }
+    else if(m_transformMode == TILING) {
+//TODO
+    }
     else if(m_transformMode == SNOWFLAKE) {
         qreal angle = 0;
         const qreal angleStep = (2 * M_PI) / m_handsCount/4;
@@ -450,6 +453,7 @@ QWidget* KisToolMultihand::createOptionWidget()
     customUI->multihandTypeCombobox->addItem(i18nc("Label of Mirror in Multihand brush tool options", "Mirror"),int(MIRROR));
     customUI->multihandTypeCombobox->addItem(i18n("Translate"),int(TRANSLATE));
     customUI->multihandTypeCombobox->addItem(i18n("Snowflake"),int(SNOWFLAKE));
+    customUI->multihandTypeCombobox->addItem(i18n("Tiling"),int(TILING));
     customUI->multihandTypeCombobox->addItem(i18n("Copy Translate"),int(COPYTRANSLATE));
     customUI->multihandTypeCombobox->addItem(i18n("Copy Translate at Intervals"),int(COPYTRANSLATEINTERVALS));
     connect(customUI->multihandTypeCombobox,SIGNAL(currentIndexChanged(int)),this, SLOT(slotSetTransformMode(int)));
